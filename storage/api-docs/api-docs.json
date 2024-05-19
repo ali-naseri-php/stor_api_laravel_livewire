@@ -1,0 +1,94 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "project stor api ali_naseri_php",
+        "version": "0.0.0"
+    },
+    "paths": {
+        "/api/v1": {},
+        "/api/v1/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "login a  user",
+                "description": "login a  user with  email, and password",
+                "operationId": "loginUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "john@example.com",
+                                    "password": "11234567ali"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "username : username ,token : token is "
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/regester": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "regester a new user",
+                "description": "regester a new user with  email, and password",
+                "operationId": "regesterUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "ali naseri",
+                                    "email": "john@example.com",
+                                    "password": "11234567ali"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "username : username ,token : token is "
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        }
+    }
+}
