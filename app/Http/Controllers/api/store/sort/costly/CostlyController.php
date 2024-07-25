@@ -19,11 +19,10 @@ class CostlyController extends Controller
 
     }
 
-    public function costlyWhereAll($categorie, $brand)
+    public function costlyWhereAll($categorie)
     {
         $validator = Validator::make(['categorie' => $categorie, 'brand' => $brand], [
             'categorie' => 'required|int',
-            'brand' => 'required|int',
 
         ]);
         if ($validator->fails())

@@ -46,14 +46,14 @@
                 }
             }
         },
-        "/api/v1/regester": {
+        "/api/v1/register": {
             "post": {
                 "tags": [
                     "auth"
                 ],
-                "summary": "regester a new user",
-                "description": "regester a new user with  email, and password",
-                "operationId": "regesterUser",
+                "summary": "register a new user",
+                "description": "register a new user with  email, and password",
+                "operationId": "registerUser",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -83,6 +83,34 @@
                 "responses": {
                     "201": {
                         "description": "username : username ,token : token is "
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "api/v1/brands": {
+            "post": {
+                "tags": [
+                    "brands"
+                ],
+                "summary": "lbrand all ",
+                "description": "list all brand",
+                "operationId": "brand",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "{'msg':[{'id':'id','name':'name','created_at':'date','updated_at':'date'}]}"
                     },
                     "422": {
                         "description": "Validation error"
