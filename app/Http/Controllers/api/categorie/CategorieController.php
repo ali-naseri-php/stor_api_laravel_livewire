@@ -18,7 +18,7 @@ class CategorieController extends Controller
      *     path="/api/v1/categories",
      *     operationId="allcategories",
      *     tags={"categories"},
-     *     summary="categories",
+     *     summary="categories all ",
      *     description="categories all",
      *     @OA\RequestBody(
      *         required=true,
@@ -56,7 +56,7 @@ class CategorieController extends Controller
      *     path="/api/v1/categories",
      *     operationId="storecategories",
      *     tags={"categories"},
-     *     summary="storecategories",
+     *     summary="add new categories",
      *     description="categories store",
      *     @OA\RequestBody(
      *         required=true,
@@ -119,7 +119,7 @@ class CategorieController extends Controller
      *     path="/api/v1/categories",
      *     operationId="updatecategories",
      *     tags={"categories"},
-     *     summary="updatecategories",
+     *     summary="update categories for id",
      *     description="categories updated",
      *     @OA\RequestBody(
      *         required=true,

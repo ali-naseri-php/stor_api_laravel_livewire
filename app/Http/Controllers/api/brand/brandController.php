@@ -19,7 +19,7 @@ class brandController extends Controller
      *     path="api/v1/brands",
      *     operationId="brand all",
      *     tags={"brand"},
-     *     summary="brand request  ",
+     *     summary="brands all ",
      *     description="list all brand",
      *     @OA\RequestBody(
      *         required=true,
