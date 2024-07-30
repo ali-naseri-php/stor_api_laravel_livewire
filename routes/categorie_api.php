@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/v1')->group(function () {
-    Route::prefix('/categorie')->group(function () {
+    Route::prefix('/categories')->group(function () {
 
         Route::post('/', [\App\Http\Controllers\api\categorie\CategorieController::class, 'store']);
         Route::get('/', [\App\Http\Controllers\api\categorie\CategorieController::class, 'index']);

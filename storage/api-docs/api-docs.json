@@ -91,13 +91,13 @@
             }
         },
         "api/v1/brands": {
-            "post": {
+            "get": {
                 "tags": [
-                    "brands"
+                    "brand"
                 ],
-                "summary": "lbrand all ",
+                "summary": "brand request  ",
                 "description": "list all brand",
-                "operationId": "brand",
+                "operationId": "brand all",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -111,6 +111,237 @@
                 "responses": {
                     "200": {
                         "description": "{'msg':[{'id':'id','name':'name','created_at':'date','updated_at':'date'}]}"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/brands": {
+            "post": {
+                "tags": [
+                    "brand"
+                ],
+                "summary": "add new brand",
+                "description": "new brand",
+                "operationId": "brand new ",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "apple"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "{'msg':'save ok'}"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/brand/{id }": {
+            "get": {
+                "tags": [
+                    "brand"
+                ],
+                "summary": "show brand for id",
+                "description": "show brand for id",
+                "operationId": "show brand for id",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": []
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "{'msg':'data brand as array'}"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/brands/{id}": {
+            "put": {
+                "tags": [
+                    "brand"
+                ],
+                "summary": "update a brand",
+                "description": "update abrand with a name",
+                "operationId": " updatingBrand",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "samsong"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "update brand"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "brand"
+                ],
+                "summary": "destroy a brand",
+                "description": "destroy abrand with a name",
+                "operationId": "destroyBrand",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "destroy brand"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/categories": {
+            "get": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "categories",
+                "description": "categories all",
+                "operationId": "allcategories",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "all categories"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "updatecategories",
+                "description": "categories updated",
+                "operationId": "updatecategories",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "mobaile",
+                                    "category_id": "Electronic"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "save update"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "storecategories",
+                "description": "categories store",
+                "operationId": "storecategories",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "moballe",
+                                    "category_id": "Electronic"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "store ok categories"
                     },
                     "422": {
                         "description": "Validation error"
