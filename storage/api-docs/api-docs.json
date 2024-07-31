@@ -95,7 +95,7 @@
                 "tags": [
                     "brand"
                 ],
-                "summary": "brand request  ",
+                "summary": "brands all ",
                 "description": "list all brand",
                 "operationId": "brand all",
                 "requestBody": {
@@ -250,7 +250,7 @@
                 "tags": [
                     "categories"
                 ],
-                "summary": "categories",
+                "summary": "categories all ",
                 "description": "categories all",
                 "operationId": "allcategories",
                 "requestBody": {
@@ -276,7 +276,7 @@
                 "tags": [
                     "categories"
                 ],
-                "summary": "updatecategories",
+                "summary": "update categories for id",
                 "description": "categories updated",
                 "operationId": "updatecategories",
                 "requestBody": {
@@ -314,7 +314,7 @@
                 "tags": [
                     "categories"
                 ],
-                "summary": "storecategories",
+                "summary": "add new categories",
                 "description": "categories store",
                 "operationId": "storecategories",
                 "requestBody": {
@@ -342,6 +342,34 @@
                 "responses": {
                     "201": {
                         "description": "store ok categories"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/getProppertiCategorie/{categorie}": {
+            "get": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "Get Propperti Categorie ",
+                "description": "Get Propperti Categorie ",
+                "operationId": "Proppertforcategories",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Get Propperti Categorie "
                     },
                     "422": {
                         "description": "Validation error"

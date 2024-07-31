@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class ProppertiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $proppertis = Propperti::all();
@@ -21,9 +19,7 @@ class ProppertiController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         //        dd($request);
