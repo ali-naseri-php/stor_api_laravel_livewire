@@ -12,12 +12,80 @@ use Illuminate\Support\Facades\Validator;
 class ProppertiController extends Controller
 {
 
+    /**
+     *
+     * all categories
+     *
+     * @OA\Get(
+     *     path="/api/v1/proppertis",
+     *     operationId="allproppertis",
+     *     tags={"categories"},
+     *     summary="proppertis all ",
+     *     description="proppertis all",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 type="object",
+     *      )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="all proppertis"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error"
+     *     )
+     * )
+     */
+
     public function index()
     {
         $proppertis = Propperti::all();
-        return response()->json(['msg'=>$proppertis], 200);
+        return response()->json(['msg' => $proppertis], 200);
 
     }
+
+
+    /**
+     *
+     * all categories
+     *
+     * @OA\Post(
+     *     path="/api/v1/proppertis",
+     *     operationId="storeproppertis",
+     *     tags={"categories"},
+     *     summary="proppertis store ",
+     *     description="proppertis store",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 type="object",
+     *                            @OA\Property(
+     *                        property="categorie_id",
+     *                        type="string"),
+     *                   @OA\Property(
+     *                      property="name",
+     *                       type="string"
+     *       )
+     *      )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="store proppertis"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error"
+     *     )
+     * )
+     */
 
 
     public function store(Request $request)
@@ -40,17 +108,45 @@ class ProppertiController extends Controller
         $propperti->save();
 
 
-        return response()->json(['msg'=>'save ok'], 201);
+        return response()->json(['msg' => 'save ok'], 201);
 
     }
 
     /**
-     * Display the specified resource.
-     */
-
-
-    /**
-     * Update the specified resource in storage.
+     *
+     * all categories
+     *
+     * @OA\Put(
+     *     path="/api/v1/proppertis",
+     *     operationId="updateproppertis",
+     *     tags={"categories"},
+     *     summary="proppertis updated ",
+     *     description="proppertis updated",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 type="object",
+     *                       @OA\Property(
+     *                       property="categorie_id",
+     *                       type="string"),
+     *                  @OA\Property(
+     *                     property="name",
+     *                      type="string"
+     *      )
+     *         )
+     * )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="all proppertis"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error"
+     *     )
+     * )
      */
     public function update(Request $request, Propperti $propperti)
     {
@@ -64,13 +160,13 @@ class ProppertiController extends Controller
         if ($validator->fails())
             return response()->json(['errors' => $validator->errors()], 422);
 
-            $propperti->name = $request->name;
-            $propperti->categorie_id = $request->categorie_id;
+        $propperti->name = $request->name;
+        $propperti->categorie_id = $request->categorie_id;
 
-            $propperti->save();
+        $propperti->save();
 
 
-        return response()->json(['msg'=>'save update ok !'], 201);
+        return response()->json(['msg' => 'save update ok !'], 201);
 
 
     }
