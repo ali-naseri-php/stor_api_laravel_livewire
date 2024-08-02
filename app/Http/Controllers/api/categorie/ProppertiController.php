@@ -114,13 +114,13 @@ class ProppertiController extends Controller
 
     /**
      *
-     * all categories
+     * update categories
      *
      * @OA\Put(
-     *     path="/api/v1/proppertis",
+     *     path="/api/v1/proppertis/2",
      *     operationId="updateproppertis",
      *     tags={"categories"},
-     *     summary="proppertis updated ",
+     *     summary="proppertis updated Number 2 can be put the other thing",
      *     description="proppertis updated",
      *     @OA\RequestBody(
      *         required=true,
@@ -139,7 +139,7 @@ class ProppertiController extends Controller
      * )
      *     ),
      *     @OA\Response(
-     *         response=200,
+     *         response=201,
      *         description="all proppertis"
      *     ),
      *     @OA\Response(

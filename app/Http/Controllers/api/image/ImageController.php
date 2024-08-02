@@ -10,8 +10,35 @@ use Illuminate\Support\Facades\Validator;
 
 class ImageController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
+     *
+     * all images
+     *
+     * @OA\Get (
+     *     path="/api/v1/images",
+     *     operationId="imagesall",
+     *     tags={"images"},
+     *     summary="images all",
+     *     description="images all",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 type="object",
+     *         )
+     * )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="all url amage"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error"
+     *     )
+     * )
      */
     public function index()
     {
@@ -22,8 +49,47 @@ class ImageController extends Controller
 
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     *
+     * all images
+     *
+     * @OA\Post(
+     *     path="/api/v1/images",
+     *     operationId="imagesstore",
+     *     tags={"images"},
+     *     summary="images store",
+     *     description="images store",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 type="object",
+     *              @OA\Property(
+     *                      property="image",
+     *                       type="image"
+     *       ),
+     *              @OA\Property(
+     *                      property="imageable_type",
+     *                       type="string"
+     *       ),
+     *                @OA\Property(
+     *                      property="imageable_id",
+     *                       type="integer"
+     *       )
+     *         )
+     * )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="save ok !"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error"
+     *     )
+     * )
      */
     public function store(Request $request)
     {
@@ -49,10 +115,38 @@ class ImageController extends Controller
         return response()->json(['msg' => 'save ok !'], 201);
 
     }
-
-
     /**
-     * Update the specified resource in storage.
+     *
+     * all images
+     *
+     * @OA\Put (
+     *     path="/api/v1/images/2",
+     *     operationId="imagesupdate",
+     *     tags={"images"},
+     *     summary="images update !",
+     *     description="images update",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 type="object",
+     *              @OA\Property(
+     *                      property="image",
+     *                       type="image"
+     *       )
+     *         )
+     * )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="save update ok !"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error"
+     *     )
+     * )
      */
     public
     function update(Request $request, Image $image)

@@ -42,6 +42,7 @@ class CategorieController extends Controller
 
     public function index()
     {
+
         $categories = Categorie::with('categorie_id')->get();
 
         return response()->json(['msg' => $categories], 200);
@@ -116,10 +117,10 @@ class CategorieController extends Controller
      * update categories
      *
      * @OA\Put(
-     *     path="/api/v1/categories",
+     *     path="/api/v1/categories/2",
      *     operationId="updatecategories",
      *     tags={"categories"},
-     *     summary="update categories for id",
+     *     summary="update categories for id Number 2 can be put the other thing",
      *     description="categories updated",
      *     @OA\RequestBody(
      *         required=true,
@@ -129,7 +130,7 @@ class CategorieController extends Controller
      *                 type="object",
      *
      *                  @OA\Property(
-     *                      property="category_id",
+     *                      property="categorie_id",
      *                      type="string"
      *                  ),
      *                       @OA\Property(
@@ -168,7 +169,7 @@ class CategorieController extends Controller
 
         $categorie->name = $request->name;
         $categorie->categorie_id = $request->categorie_id;
-        $categorie->save();
+        $ali = $categorie->save();
 
         return response()->json(['msg' => 'save update'], 201);
     }

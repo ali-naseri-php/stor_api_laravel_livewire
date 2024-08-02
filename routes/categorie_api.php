@@ -13,7 +13,7 @@ Route::prefix('/v1')->group(function () {
 
         Route::post('/', [\App\Http\Controllers\api\categorie\ProppertiController::class, 'store']);
         Route::get('/', [\App\Http\Controllers\api\categorie\ProppertiController::class, 'index']);
-        Route::put('/', [\App\Http\Controllers\api\categorie\ProppertiController::class, 'update']);
+        Route::put('/{propperti}', [\App\Http\Controllers\api\categorie\ProppertiController::class, 'update']);
     });
 
     Route::get('/getProppertiCategorie/{categorie}',\App\Http\Controllers\api\categorie\GetProppertiCategorieController::class);

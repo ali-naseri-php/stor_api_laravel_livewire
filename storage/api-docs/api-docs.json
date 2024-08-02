@@ -183,7 +183,7 @@
                 }
             }
         },
-        "/api/v1/brands/{id}": {
+        "/api/v1/brands/1": {
             "put": {
                 "tags": [
                     "brand"
@@ -217,7 +217,9 @@
                         "description": "Validation error"
                     }
                 }
-            },
+            }
+        },
+        "/api/v1/brands/{id}": {
             "delete": {
                 "tags": [
                     "brand"
@@ -272,44 +274,6 @@
                     }
                 }
             },
-            "put": {
-                "tags": [
-                    "categories"
-                ],
-                "summary": "update categories for id",
-                "description": "categories updated",
-                "operationId": "updatecategories",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "category_id": {
-                                        "type": "string"
-                                    },
-                                    "name": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object",
-                                "example": {
-                                    "name": "mobaile",
-                                    "category_id": "Electronic"
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "save update"
-                    },
-                    "422": {
-                        "description": "Validation error"
-                    }
-                }
-            },
             "post": {
                 "tags": [
                     "categories"
@@ -342,6 +306,46 @@
                 "responses": {
                     "201": {
                         "description": "store ok categories"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/categories/2": {
+            "put": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "update categories for id Number 2 can be put the other thing",
+                "description": "categories updated",
+                "operationId": "updatecategories",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "categorie_id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "mobaile",
+                                    "category_id": "Electronic"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "save update"
                     },
                     "422": {
                         "description": "Validation error"
@@ -404,40 +408,6 @@
                     }
                 }
             },
-            "put": {
-                "tags": [
-                    "categories"
-                ],
-                "summary": "proppertis updated ",
-                "description": "proppertis updated",
-                "operationId": "updateproppertis",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "categorie_id": {
-                                        "type": "string"
-                                    },
-                                    "name": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "all proppertis"
-                    },
-                    "422": {
-                        "description": "Validation error"
-                    }
-                }
-            },
             "post": {
                 "tags": [
                     "categories"
@@ -466,6 +436,140 @@
                 "responses": {
                     "200": {
                         "description": "store proppertis"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/proppertis/2": {
+            "put": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "proppertis updated Number 2 can be put the other thing",
+                "description": "proppertis updated",
+                "operationId": "updateproppertis",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "categorie_id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "all proppertis"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/images": {
+            "get": {
+                "tags": [
+                    "images"
+                ],
+                "summary": "images all",
+                "description": "images all",
+                "operationId": "imagesall",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "all url amage"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "images"
+                ],
+                "summary": "images store",
+                "description": "images store",
+                "operationId": "imagesstore",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "image": {
+                                        "type": "image"
+                                    },
+                                    "imageable_type": {
+                                        "type": "string"
+                                    },
+                                    "imageable_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "save ok !"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/images/2": {
+            "put": {
+                "tags": [
+                    "images"
+                ],
+                "summary": "images update !",
+                "description": "images update",
+                "operationId": "imagesupdate",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "image": {
+                                        "type": "image"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "save update ok !"
                     },
                     "422": {
                         "description": "Validation error"

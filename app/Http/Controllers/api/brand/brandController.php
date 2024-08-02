@@ -152,7 +152,7 @@ class brandController extends Controller
      * update a brand
      *
      * @OA\Put(
-     *     path="/api/v1/brands/{id}",
+     *     path="/api/v1/brands/1",
      *     operationId=" updatingBrand",
      *     tags={"brand"},
      *     summary="update a brand",
