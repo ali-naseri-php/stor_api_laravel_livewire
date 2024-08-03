@@ -353,7 +353,7 @@
                 }
             }
         },
-        "/api/v1/getProppertiCategorie/{categorie}": {
+        "/api/v1/getProppertiCategorie/2": {
             "get": {
                 "tags": [
                     "categories"
@@ -570,6 +570,67 @@
                 "responses": {
                     "201": {
                         "description": "save update ok !"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/dsa": {
+            "get": {
+                "tags": [
+                    "store"
+                ],
+                "summary": "images all",
+                "description": "images all",
+                "operationId": "asdad",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "all kala"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/kala/sort/cheapest/1": {
+            "get": {
+                "tags": [
+                    "sort"
+                ],
+                "summary": "proppertis updated Number 2 can be put the other thing",
+                "description": "proppertis updated",
+                "operationId": "sort",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "where": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "all proppertis"
                     },
                     "422": {
                         "description": "Validation error"

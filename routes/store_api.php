@@ -23,10 +23,10 @@ Route::prefix('/v1')->group(function () {
             });
             Route::prefix('/cheapest')->group(function () {
 
-                Route::get('/all', [\App\Http\Controllers\api\store\sort\cheapest\CheapestController::class, 'cheapestAll']);
-                Route::get('whereall/{cat}/{bra}', [\App\Http\Controllers\api\store\sort\cheapest\CheapestController::class, 'cheapestWhereAll']);
-            Route::get('/categorie/{cat}', [\App\Http\Controllers\api\store\sort\cheapest\CheapestController::class, 'cheapestWhereCategorie']);
-                Route::get('/brand/{bra}', [\App\Http\Controllers\api\store\sort\cheapest\CheapestController::class, 'cheapestWhereBrand']);
+                Route::get('/all', \App\Http\Controllers\api\store\sort\cheapest\AllController::class);
+                Route::get('/{categorie}', [\App\Http\Controllers\api\store\sort\cheapest\CheapestController::class, 'cheapestWhereAll']);
+//            Route::get('/categorie/{cat}', [\App\Http\Controllers\api\store\sort\cheapest\CheapestController::class, 'cheapestWhereCategorie']);
+//                Route::get('/brand/{bra}', [\App\Http\Controllers\api\store\sort\cheapest\CheapestController::class, 'cheapestWhereBrand']);
             });
             Route::prefix('/costly')->group(function () {
 

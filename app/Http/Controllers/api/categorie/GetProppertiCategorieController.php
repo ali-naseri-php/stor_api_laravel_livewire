@@ -16,7 +16,7 @@ class GetProppertiCategorieController extends Controller
      * get prapertis categories
      *
      * @OA\Get(
-     *     path="/api/v1/getProppertiCategorie/{categorie}",
+     *     path="/api/v1/getProppertiCategorie/2",
      *     operationId="Proppertforcategories",
      *     tags={"categories"},
      *     summary="Get Propperti Categorie ",
