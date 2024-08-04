@@ -577,14 +577,14 @@
                 }
             }
         },
-        "/api/v1/dsa": {
+        "/api/v1/kala/sort/cheapest/all": {
             "get": {
                 "tags": [
-                    "store"
+                    "sort"
                 ],
-                "summary": "images all",
-                "description": "images all",
-                "operationId": "asdad",
+                "summary": "all kala sort cheapest",
+                "description": "all kala sort cheapest",
+                "operationId": "allwheapest",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -597,7 +597,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "all kala"
+                        "description": "all kala "
                     },
                     "422": {
                         "description": "Validation error"
@@ -610,9 +610,9 @@
                 "tags": [
                     "sort"
                 ],
-                "summary": "proppertis updated Number 2 can be put the other thing",
-                "description": "proppertis updated",
-                "operationId": "sort",
+                "summary": "",
+                "description": " all kala where and sort cheapest price",
+                "operationId": "sortcheapest",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -620,7 +620,7 @@
                             "schema": {
                                 "properties": {
                                     "where": {
-                                        "type": "string"
+                                        "type": "url"
                                     }
                                 },
                                 "type": "object"
@@ -629,8 +629,8 @@
                     }
                 },
                 "responses": {
-                    "201": {
-                        "description": "all proppertis"
+                    "200": {
+                        "description": "all kala price"
                     },
                     "422": {
                         "description": "Validation error"

@@ -13,6 +13,40 @@ class CheapestController extends Controller
 {
 
 
+    public function cheapestWhereAll(Categorie $categorie,Request $request)
+    {
+
+        //        dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'where' => 'required|array',
+            'name'=>'string'
+        ]);
+        if ($validator->fails())
+            return response()->json(['errors' => $validator->errors()], 422);
+        //dd($request->where);
+
+
+
+
+        $kalas = DB::table('kalas')
+            ->leftJoin('kalas_proppertis', 'kalas_proppertis.kala_id', '=', 'kalas.id')
+            ->leftJoin('proppertis', 'proppertis.id', '=', 'kalas_proppertis.propperti_id')
+            ->leftJoin('categories', 'categories.id', '=', 'proppertis.categorie_id')
+            ->where('kalas_proppertis.value','=',$request->where)
+            ->where('categories.id','=',$categorie->id)
+            ->orderBy('kalas.price')
+            ->select('kalas.*')->get();
+
+
+
+
+        return response()->json(['kalas' => $kalas], 200);
+
+
+    }
+
+
+
     public function cheapestWhereCategorie($categorie)
     {
         $validator = Validator::make(['categorie' => $categorie], [

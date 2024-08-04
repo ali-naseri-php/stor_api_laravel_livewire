@@ -11,14 +11,14 @@ class AllController extends Controller
 
     /**
      *
-     * all images
+     * all kala
      *
      * @OA\Get (
-     *     path="/api/v1/dsa",
-     *     operationId="asdad",
-     *     tags={"store"},
-     *     summary="images all",
-     *     description="images all",
+     *     path="/api/v1/kala/sort/cheapest/all",
+     *     operationId="allwheapest",
+     *     tags={"sort"},
+     *     summary="all kala sort cheapest",
+     *     description="all kala sort cheapest",
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\MediaType(
@@ -30,7 +30,7 @@ class AllController extends Controller
      *     ),
      *     @OA\Response(
      *         response=200,
-     *         description="all kala"
+     *         description="all kala "
      *     ),
      *     @OA\Response(
      *         response=422,
