@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\store\sort\cheapest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,21 +46,26 @@ class whereController extends Controller
      */
     public function __invoke(Categorie $categorie, Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'where' => 'required|array',
-            'name' => 'string'
+            'name' => 'required|string'
         ]);
+
         if ($validator->fails())
             return response()->json(['errors' => $validator->errors()], 422);
+
         $kalas = DB::table('kalas')
             ->leftJoin('kalas_proppertis', 'kalas_proppertis.kala_id', '=', 'kalas.id')
             ->leftJoin('proppertis', 'proppertis.id', '=', 'kalas_proppertis.propperti_id')
             ->leftJoin('categories', 'categories.id', '=', 'proppertis.categorie_id')
             ->where('kalas_proppertis.value', '=', $request->where)
             ->where('categories.id', '=', $categorie->id)
+            ->where('kalas.name', '=', $request->name)
             ->orderBy('kalas.price')
             ->groupBy('kalas.id', 'kalas.name', 'kalas.weight', 'kalas.body', 'kalas.price', 'kalas.number_kala', 'kalas.created_at', 'kalas.updated_at')
             ->select('kalas.*')->get();
         return response()->json(['kalas' => $kalas], 200);
+
     }
 }

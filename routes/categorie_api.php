@@ -11,9 +11,9 @@ Route::prefix('/v1')->group(function () {
     });
     Route::prefix('/proppertis')->group(function () {
 
-        Route::post('/', [\App\Http\Controllers\api\categorie\ProppertiController::class, 'store']);
-        Route::get('/', [\App\Http\Controllers\api\categorie\ProppertiController::class, 'index']);
-        Route::put('/{propperti}', [\App\Http\Controllers\api\categorie\ProppertiController::class, 'update']);
+        Route::post('/', \App\Http\Controllers\api\categorie\storeProppertiController::class);
+        Route::get('/', \App\Http\Controllers\api\categorie\allProppertiController::class);
+        Route::put('/{propperti}', \App\Http\Controllers\api\categorie\updateProppertiController::class);
     });
 
     Route::get('/getProppertiCategorie/{categorie}',\App\Http\Controllers\api\categorie\GetProppertiCategorieController::class);
