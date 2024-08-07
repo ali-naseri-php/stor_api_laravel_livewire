@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/v1')->group(function () {
     Route::prefix('/categories')->group(function () {
 
-        Route::post('/', [\App\Http\Controllers\api\categorie\CategorieController::class, 'store']);
-        Route::get('/', [\App\Http\Controllers\api\categorie\CategorieController::class, 'index']);
-        Route::put('/{categorie}', [\App\Http\Controllers\api\categorie\CategorieController::class, 'update']);
+        Route::post('/', \App\Http\Controllers\api\categorie\storeCategorieController::class);
+        Route::get('/', \App\Http\Controllers\api\categorie\allCategorieController::class);
+        Route::put('/{categorie}', \App\Http\Controllers\api\categorie\updateCategorieController::class);
     });
     Route::prefix('/proppertis')->group(function () {
 
