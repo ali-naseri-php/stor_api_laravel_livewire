@@ -118,6 +118,35 @@
                 }
             }
         },
+        "/api/v1/brand/{id }": {
+            "get": {
+                "tags": [
+                    "brand"
+                ],
+                "summary": "show brand for id",
+                "description": "show brand for id",
+                "operationId": "show brand for id",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": []
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "{'msg':'data brand as array'}"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
         "/api/v1/brands": {
             "post": {
                 "tags": [
@@ -147,35 +176,6 @@
                 "responses": {
                     "201": {
                         "description": "{'msg':'save ok'}"
-                    },
-                    "422": {
-                        "description": "Validation error"
-                    }
-                }
-            }
-        },
-        "/api/v1/brand/{id }": {
-            "get": {
-                "tags": [
-                    "brand"
-                ],
-                "summary": "show brand for id",
-                "description": "show brand for id",
-                "operationId": "show brand for id",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "example": []
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "{'msg':'data brand as array'}"
                     },
                     "422": {
                         "description": "Validation error"
@@ -219,14 +219,14 @@
                 }
             }
         },
-        "/api/v1/brands/{id}": {
-            "delete": {
+        "/api/v1/getProppertiCategorie/2": {
+            "get": {
                 "tags": [
-                    "brand"
+                    "categories"
                 ],
-                "summary": "destroy a brand",
-                "description": "destroy abrand with a name",
-                "operationId": "destroyBrand",
+                "summary": "Get Propperti Categorie ",
+                "description": "Get Propperti Categorie ",
+                "operationId": "Proppertforcategories",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -239,7 +239,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "destroy brand"
+                        "description": "Get Propperti Categorie "
                     },
                     "422": {
                         "description": "Validation error"
@@ -313,74 +313,6 @@
                 }
             }
         },
-        "/api/v1/categories/2": {
-            "put": {
-                "tags": [
-                    "categories"
-                ],
-                "summary": "update categories for id Number 2 can be put the other thing",
-                "description": "categories updated",
-                "operationId": "updatecategories",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "categorie_id": {
-                                        "type": "string"
-                                    },
-                                    "name": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object",
-                                "example": {
-                                    "name": "mobaile",
-                                    "category_id": "Electronic"
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "save update"
-                    },
-                    "422": {
-                        "description": "Validation error"
-                    }
-                }
-            }
-        },
-        "/api/v1/getProppertiCategorie/2": {
-            "get": {
-                "tags": [
-                    "categories"
-                ],
-                "summary": "Get Propperti Categorie ",
-                "description": "Get Propperti Categorie ",
-                "operationId": "Proppertforcategories",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Get Propperti Categorie "
-                    },
-                    "422": {
-                        "description": "Validation error"
-                    }
-                }
-            }
-        },
         "/api/v1/proppertis": {
             "get": {
                 "tags": [
@@ -436,6 +368,46 @@
                 "responses": {
                     "200": {
                         "description": "store proppertis"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/categories/2": {
+            "put": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "update categories for id Number 2 can be put the other thing",
+                "description": "categories updated",
+                "operationId": "updatecategories",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "categorie_id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "mobaile",
+                                    "category_id": "Electronic"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "save update"
                     },
                     "422": {
                         "description": "Validation error"
@@ -570,6 +542,34 @@
                 "responses": {
                     "201": {
                         "description": "save update ok !"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1'/getpropperti/2": {
+            "get": {
+                "tags": [
+                    "store"
+                ],
+                "summary": "get properti kala",
+                "description": "get properti kala",
+                "operationId": "gettpropertikala",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "all properti kala "
                     },
                     "422": {
                         "description": "Validation error"

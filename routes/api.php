@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 require __DIR__.'/auth_api.php';
 require __DIR__.'/tag_api.php';
 require __DIR__.'/image_api.php';
-require __DIR__.'/brand.php';
+require __DIR__.'/brand_api.php';
 
 require __DIR__.'/store_api.php';
 require __DIR__.'/categorie_api.php';
