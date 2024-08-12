@@ -25,13 +25,11 @@ Route::prefix('/v1')->group(function () {
 
                 Route::get('/all', \App\Http\Controllers\api\store\sort\cheapest\AllController::class);
                 Route::get('/{categorie}', \App\Http\Controllers\api\store\sort\cheapest\whereController::class);
-   });
+            });
             Route::prefix('/costly')->group(function () {
 
-                Route::get('/all', [\App\Http\Controllers\api\store\sort\costly\CostlyController::class, 'costlyAll']);
-                Route::get('whereall/{cat}/{bra}', [\App\Http\Controllers\api\store\sort\costly\CostlyController::class, 'costlyWhereAll']);
-                Route::get('/categorie/{cat}', [\App\Http\Controllers\api\store\sort\costly\CostlyController::class, 'costlyWhereCategorie']);
-                Route::get('/brand/{bra}', [\App\Http\Controllers\api\store\sort\costly\CostlyController::class, 'costlyWhereBrand']);
+                Route::get('/all', \App\Http\Controllers\api\store\sort\costly\AllController::class);
+                Route::get('/{categorie}', \App\Http\Controllers\api\store\sort\costly\whereController::class);
             });
         });
 

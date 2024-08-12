@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\store\sort\cheapest;
+namespace App\Http\Controllers\api\store\sort\costly;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kala;
@@ -14,11 +14,11 @@ class AllController extends Controller
      * all kala
      *
      * @OA\Get (
-     *     path="/api/v1/kala/sort/cheapest/all",
-     *     operationId="allcheapestN",
+     *     path="/api/v1/kala/sort/costly/all",
+     *     operationId="allcostly",
      *     tags={"sort"},
-     *     summary="all kala sort cheapest",
-     *     description="all kala sort cheapest",
+     *     summary="all kala sort costly",
+     *     description="all kala sort costly",
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\MediaType(
@@ -40,6 +40,6 @@ class AllController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $kalas = Kala::orderBy('price')->get();
+        $kalas = Kala::orderBy('price', 'DESC')->get();
         return response()->json(['kalas' => $kalas], 200);    }
 }

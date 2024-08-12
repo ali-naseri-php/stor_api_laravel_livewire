@@ -42,13 +42,8 @@ class GetProppertiKalaController extends Controller
     public function getproppertikala(int $id)
     {
         $kala = Kala::with('properties')->find($id);
-
-
-
         $addvisit=new AddVisitController();
         $addvisit->addvisit($kala->id);
         return response()->json(['kala' => $kala], 200);
-
-
     }
 }

@@ -584,7 +584,7 @@
                 ],
                 "summary": "all kala sort cheapest",
                 "description": "all kala sort cheapest",
-                "operationId": "allwheapest",
+                "operationId": "allcheapestN",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -610,9 +610,70 @@
                 "tags": [
                     "sort"
                 ],
-                "summary": "",
+                "summary": "all kala where and sort cheapest price",
                 "description": " all kala where and sort cheapest price",
-                "operationId": "sortcheapest",
+                "operationId": "sortwherecheapest",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "where": {
+                                        "type": "url"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "all kala price"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/kala/sort/costly/all": {
+            "get": {
+                "tags": [
+                    "sort"
+                ],
+                "summary": "all kala sort costly",
+                "description": "all kala sort costly",
+                "operationId": "allcostly",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "all kala "
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/kala/sort/costly/1": {
+            "get": {
+                "tags": [
+                    "sort"
+                ],
+                "summary": "all kala where and sort costly price",
+                "description": " all kala where and sort costly price",
+                "operationId": "sortwherecostly",
                 "requestBody": {
                     "required": true,
                     "content": {

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\api\store\sort\cheapest;
+namespace App\Http\Controllers\api\store\sort\costly;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,14 +12,14 @@ class whereController extends Controller
 {
     /**
      *
-     * get where cheapest
+     * get where costly
      *
      * @OA\Get(
-     *     path="/api/v1/kala/sort/cheapest/1",
-     *     operationId="sortwherecheapest",
+     *     path="/api/v1/kala/sort/costly/1",
+     *     operationId="sortwherecostly",
      *     tags={"sort"},
-     *     summary="all kala where and sort cheapest price",
-     *     description=" all kala where and sort cheapest price",
+     *     summary="all kala where and sort costly price",
+     *     description=" all kala where and sort costly price",
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\MediaType(
@@ -62,10 +61,11 @@ class whereController extends Controller
             ->where('kalas_proppertis.value', '=', $request->where)
             ->where('categories.id', '=', $categorie->id)
             ->where('kalas.name', '=', $request->name)
-            ->orderBy('kalas.price')
+            ->orderBy('kalas.price','DESC')
             ->groupBy('kalas.id', 'kalas.name', 'kalas.weight', 'kalas.body', 'kalas.price', 'kalas.number_kala', 'kalas.created_at', 'kalas.updated_at')
             ->select('kalas.*')->get();
         return response()->json(['kalas' => $kalas], 200);
 
     }
 }
+
