@@ -15,5 +15,6 @@ class AddVisitController extends Controller
 
         $kalavisit->number = $kalavisit->number + 1;
         $kalavisit->save();
+
     }
 }

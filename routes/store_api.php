@@ -16,11 +16,9 @@ Route::prefix('/v1')->group(function () {
         Route::prefix('/sort')->group(function () {
             Route::prefix('/visit')->group(function () {
 
-                Route::get('/all', [\App\Http\Controllers\api\store\sort\visit\MostvisitingController::class, 'mostvisitAll']);
-                Route::get('/{cat}/{bra}', [\App\Http\Controllers\api\store\sort\visit\MostvisitingController::class, 'mostvisitWhereAll']);
-                Route::get('/{cat}', [\App\Http\Controllers\api\store\sort\visit\MostvisitingController::class, 'mostvisitWhereCategorie']);
-                Route::get('//{bra}', [\App\Http\Controllers\api\store\sort\visit\MostvisitingController::class, 'mostvisitWhereBrand']);
-            });
+                Route::get('/all', \App\Http\Controllers\api\store\sort\visit\AllController::class);
+                Route::get('/{categorie}', \App\Http\Controllers\api\store\sort\visit\whereController::class);
+                });
             Route::prefix('/cheapest')->group(function () {
 
                 Route::get('/all', \App\Http\Controllers\api\store\sort\cheapest\AllController::class);
