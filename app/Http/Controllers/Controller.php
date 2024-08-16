@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kala;
+
 abstract class Controller
 {
     /**
@@ -15,5 +17,8 @@ abstract class Controller
     public function index()
     {
 
+
     }
+
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api\brand;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Kala;
 use Illuminate\Http\Request;
 
 class allBrandController extends Controller
@@ -23,10 +24,17 @@ class allBrandController extends Controller
      *             mediaType="application/json",
      *             @OA\Schema(
      *                 type="object",
+     *                      @OA\Property(
+     *                      property="page",
+     *                      type="string"
+     *                  ),
+     *
+     *                  example={ "page": "2"}
+     *              )
      *
      *
      *             )
-     *         )
+     *
      *     ),
      *     @OA\Response(
      *         response=200,
@@ -40,9 +48,11 @@ class allBrandController extends Controller
      */
     public function __invoke()
     {
-        $brands = Brand::all();
+        $brands = Brand::paginate(1);
         return response()->json(['msg' => $brands], 201);
 
 
     }
+
+
 }

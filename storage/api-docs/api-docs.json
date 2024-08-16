@@ -103,7 +103,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object"
+                                "properties": {
+                                    "page": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "page": "2"
+                                }
                             }
                         }
                     }
@@ -692,6 +700,67 @@
                 "responses": {
                     "200": {
                         "description": "all kala price"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/kala/sort/visit/all": {
+            "get": {
+                "tags": [
+                    "sort"
+                ],
+                "summary": "all kala sort visit",
+                "description": "all kala sort visit",
+                "operationId": "allvisit",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "all kala "
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/v1/kala/sort/visit/1": {
+            "get": {
+                "tags": [
+                    "sort"
+                ],
+                "summary": "all kala where and sort visit price",
+                "description": " all kala where and sort visit price",
+                "operationId": "sortwherevisit",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "where": {
+                                        "type": "url"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "all kala visit"
                     },
                     "422": {
                         "description": "Validation error"
