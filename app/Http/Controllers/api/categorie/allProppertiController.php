@@ -24,6 +24,13 @@ class allProppertiController extends Controller
      *             mediaType="application/json",
      *             @OA\Schema(
      *                 type="object",
+     *
+     *                      @OA\Property(
+     *                      property="page",
+     *                      type="string"
+     *                  ),
+     *
+     *                  example={ "page": "2"}
      *      )
      *         )
      *     ),
@@ -39,7 +46,7 @@ class allProppertiController extends Controller
      */
     public function __invoke()
     {
-        $proppertis = Propperti::all();
+        $proppertis = Propperti::paginate(1);
         return response()->json(['msg' => $proppertis], 200);
     }
 }

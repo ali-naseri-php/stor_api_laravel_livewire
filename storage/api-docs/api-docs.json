@@ -342,7 +342,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object"
+                                "properties": {
+                                    "page": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "page": "2"
+                                }
                             }
                         }
                     }
