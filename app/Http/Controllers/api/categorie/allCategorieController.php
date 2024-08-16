@@ -25,6 +25,13 @@ class allCategorieController extends Controller
      *             mediaType="application/json",
      *             @OA\Schema(
      *                 type="object",
+     *
+     *   @OA\Property(
+     *  property="page",
+     * type="string"
+     *),
+     *
+     *   example={ "page": "2"}
      *      )
      *         )
      *     ),
@@ -42,7 +49,7 @@ class allCategorieController extends Controller
     public function __invoke()
     {
 
-        $categories = Categorie::with('categorie_id')->get();
+        $categories = Categorie::with('categorie_id')->paginate(5);
 
         return response()->json(['msg' => $categories], 200);
     }

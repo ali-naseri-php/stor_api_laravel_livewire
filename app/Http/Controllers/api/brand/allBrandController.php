@@ -48,7 +48,7 @@ class allBrandController extends Controller
      */
     public function __invoke()
     {
-        $brands = Brand::paginate(1);
+        $brands = Brand::paginate(10);
         return response()->json(['msg' => $brands], 201);
 
 
