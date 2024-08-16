@@ -40,7 +40,7 @@ class allImageController extends Controller
     public function __invoke()
     {
 
-        $images = Image::select('url')->get();
+        $images = Image::select('url');
         return response()->json(['images' => $images], 200);
 
 

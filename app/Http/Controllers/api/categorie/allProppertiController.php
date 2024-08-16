@@ -46,7 +46,7 @@ class allProppertiController extends Controller
      */
     public function __invoke()
     {
-        $proppertis = Propperti::paginate(1);
+        $proppertis = Propperti::paginate(5);
         return response()->json(['msg' => $proppertis], 200);
     }
 }
