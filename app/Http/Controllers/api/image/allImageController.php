@@ -24,6 +24,13 @@ class allImageController extends Controller
      *             mediaType="application/json",
      *             @OA\Schema(
      *                 type="object",
+     *
+     *                       @OA\Property(
+     *                       property="page",
+     *                       type="string"
+     *                   ),
+     *
+     *                   example={ "page": "2"}
      *         )
      * )
      *     ),
@@ -40,7 +47,7 @@ class allImageController extends Controller
     public function __invoke()
     {
 
-        $images = Image::select('url');
+        $images = Image::select('url')->paginate(10);
         return response()->json(['images' => $images], 200);
 
 
