@@ -41,10 +41,9 @@ class showBrandController extends Controller
      */
     public function __invoke(Brand $brand)
     {
-
         return response()->json(['msg' => $brand], 200);
-
-
+ 
     }
+
 
 }
